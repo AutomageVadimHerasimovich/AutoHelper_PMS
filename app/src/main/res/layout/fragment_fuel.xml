@@ -1,0 +1,127 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/fuelConsumptionChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/averageConsumptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Средний расход: 0.0 л/100км"
+            android:padding="8dp"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <!-- Table Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="@drawable/border"
+            android:showDividers="middle"
+            android:divider="?android:attr/dividerVertical"
+            android:dividerPadding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Дата"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Пробег"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Литры"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="Расход"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/deleteAllButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/darker_gray"
+                android:textColor="@android:color/white"
+                android:text="Удалить всё" />
+        </LinearLayout>
+
+        <!-- RecyclerView for the table -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fuelTableRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Input Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/dateEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Дата"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/mileageEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Пробег"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/litersEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Литры"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addRecordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить запись"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
