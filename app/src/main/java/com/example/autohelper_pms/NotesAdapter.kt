@@ -72,15 +72,8 @@ class NotesAdapter(
         }
 
         private fun setNotification(context: Context, dateStr: String) {
-            val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-            val date = sdf.parse(dateStr) ?: return
-            val calendar = Calendar.getInstance()
-            calendar.time = date
-
-            val intent = Intent(context, NotificationReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
-        }
+    val notificationHelper = NotificationHelper(context)
+    notificationHelper.setNotification(dateStr)
+}
     }
 }
